@@ -1,0 +1,68 @@
+<%= render 'partials/navbar' %>
+
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+
+<h1 style="text-align: center;">Patients</h1>
+
+<div id="top-container">
+    <!-- adding patient to database -->
+    <div id="patient_add" style="float: right"><%= link_to 'New Patient', new_patient_path, class: "btn btn-success btn-m" %></div>
+    <!-- Search bar for searching patients -->
+    <div id="search_bar" style="float: left">
+        <!-- Search bar -->
+        <%= form_tag(patients_path, :method => "get") do %>
+            <div class="input-group add-on">
+              <%= text_field_tag :name, params[:name], class: 'form-control' %>
+                <div class="input-group-btn">
+                    <%= button_tag 'Search', name: nil, class: 'btn btn-default' do %>
+                        <i class="fas fa-search"></i>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+<br>
+<br>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">contactNumber</th>
+      <th scope="col">address</th>
+      <th scope="col">gender</th>
+      <th scope="col">dob</th>
+      <th scope="col">ppsNumber</th>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.contactNumber %></td>
+        <td><%= patient.address %></td>
+        <td><%= patient.gender %></td>
+        <td><%= patient.dob %></td>
+        <td><%= patient.ppsNumber %></td>
+        <td><%= patient.id %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div>
+</div>
+
+<%= render 'partials/footer' %>

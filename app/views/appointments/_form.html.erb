@@ -1,0 +1,24 @@
+<%= simple_form_for(@appointment) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <!-- Show only patients to the current logged in users -->
+  <div class="form-inputs">
+  
+    <%= f.input :doctorprofile, :label => "Doctor" %>
+    <%= f.input :patient %>
+    <%= f.input :notes %>
+    <%= f.input :date %>
+    
+  </div>
+
+  <div class="form-actions">
+      <div style="display: flex; float: left;">
+          <%= link_to 'Back', appointments_path, class: "btn btn-warning btn-m"%>
+      </div>
+      <div style="display: flex; float: right;">
+          <%= f.button :submit , class: "btn btn-success btn-m"%>
+      </div>
+  </div>
+
+<% end %>

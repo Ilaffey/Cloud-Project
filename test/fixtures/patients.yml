@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  contactNumber: 1
+  address: MyString
+  gender: MyString
+  dob: 2020-03-18 12:09:18
+  ppsNumber: MyString
+
+two:
+  name: MyString
+  contactNumber: 1
+  address: MyString
+  gender: MyString
+  dob: 2020-03-18 12:09:18
+  ppsNumber: MyString

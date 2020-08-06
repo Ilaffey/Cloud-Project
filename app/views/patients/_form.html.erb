@@ -1,0 +1,25 @@
+<%= simple_form_for(@patient) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+    <%= f.input :name %>
+    <%= f.input :contactNumber, :label => "Contact Number" %>
+    <%= f.input :address %>
+    <%= f.input :gender , :collection => %w[Male Female]%>
+    <%= f.input :dob, :label => "Date of Birth(dd-mm-yyyy)" %>
+    <%= f.input :ppsNumber, :label => "PPS" %>
+    
+  </div>
+
+  <div class="form-actions">
+      <div style="display: flex; float: left;">
+          <%= link_to 'Back', @patient, class: "btn btn-dark btn-m" %>
+      </div>
+      <div style="display: flex; float: right;">
+          <%= f.button :submit , class: "btn btn-success btn-m" %>
+      </div>
+  </div>
+
+<% end %>
