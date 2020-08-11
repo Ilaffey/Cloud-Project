@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "font-awesome";
+ @import "bootstrap";
+ @import "tether";
+ @import "toastr";
+ html {
+   position: relative;
+   min-height: 100%;
+ }
+ body {
+   /* Margin bottom by footer height */
+   margin-bottom: 60px;
+   font-family: monaco;
+   font-weight: bold;
+   background-color: #f8f8f8;
+   padding-top: 65px;
+ }
+ footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   /* Set the fixed height of the footer here */
+   height: 60px;
+   background-color: #f8f8f8;
+   font-style: normal;
+   font-family: monaco;
+   color: black;
+ }
+ 
+ .colorgraph {
+   height: 5px;
+   border-top: 0;
+   background: #f0776c;
+   border-radius: 5px;
+   
+ }
+ 
+ #login_jumbo,  #signup_jumbo {
+     margin-top: 3em;
+     margin-left: 7em;
+     margin-right: 7em;
+ }
+ .im{
+     margin-left: auto;
+     margin-right: auto;
+     width: 100%;
+     height:100%;
+ }
+ 
+ // testing image on page
+ .image-homepage {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ 
+ .details li {
+      list-style: none;
+  }
+ 
+  .outercard {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
