@@ -6,7 +6,6 @@ ruby '2.7.0'
 #For the devise gem
 gem 'devise'
 #For the decorator pattern
-
 gem 'decorator'
 #For the observer pattern
 gem 'observer'
@@ -78,3 +77,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# Heroku uses Heroku Postgres DB based on PostgreSQL
+group :production do
+gem 'pg'
+gem 'rails_12factor'
+end
+
+
+
