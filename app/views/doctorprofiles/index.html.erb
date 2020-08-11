@@ -1,13 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%= render 'partials/navbar' %>
 
-<h1>Doctor Profiles</h1>
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
 
-<table>
-  <thead>
+<h1 style="text-align: center;">Doctors</h1>
+
+<div id="top-container">
+    <!-- adding doctor to database -->
+    <div id="doctorprofile_add" style="float: right"><%= link_to 'New Doctor', new_doctorprofile_path, class: "btn btn-success btn-m" %></div>
+    <!-- Search bar for searching doctors -->
+    <div id="search_bar" style="float: left">
+
+        <!-- Search bar -->
+<p>
+<%= form_tag(doctorprofiles_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Doctors by name" %>
+    <%= submit_tag "Search By Name", :name => nil %>
+    
+<% end %>
+</p>
+</div>
+<br>
+<br>
+
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>Name</th>
-      <th>Contactnumber</th>
-      <th>Address</th>
+       <th scope="col">Name</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Address</th>
+	<th scope="col">User</th>
+	<th scope="col">ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,12 +45,13 @@
         <td><%= doctorprofile.id %></td>
         <td><%= link_to 'Show', doctorprofile %></td>
         <td><%= link_to 'Edit', edit_doctorprofile_path(doctorprofile) %></td>
-        <td><%= link_to 'Destroy', doctorprofile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', doctorprofile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</div>
+</div>
 
-<%= link_to 'Create New Profile', new_doctorprofile_path %>
+<%= render 'partials/footer' %>

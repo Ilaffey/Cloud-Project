@@ -3,10 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
+#For the devise gem
 gem 'devise'
 #For the decorator pattern
 
 gem 'decorator'
+#For the observer pattern
+gem 'observer'
 gem 'bootstrap', '~> 4.3.1'
 # Bootstrap Javascript requires jQuery
 gem 'jquery-rails'
@@ -15,7 +18,8 @@ gem 'popper_js'
 
 # Needed for Search functionality
 gem 'simple_form'
-
+# web fonts and stylesheets
+gem "font-awesome-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'

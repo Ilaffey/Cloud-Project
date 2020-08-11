@@ -1,5 +1,5 @@
-class UserDecorator < Draper::Decorator
-  delegate_all
+class UserDecorator < SimpleDelegator
+  #delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
@@ -17,7 +17,7 @@ class UserDecorator < Draper::Decorator
 
 # This method puts the pps number in all capitals
     def pps_to_uppercase
-        pps.upcase
+        "pps number".upcase
     end
 
  # Conditional for Gender-> Pink (Female) Blue (Male) for show page

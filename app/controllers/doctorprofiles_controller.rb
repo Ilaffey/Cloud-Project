@@ -4,7 +4,7 @@ class DoctorprofilesController < ApplicationController
   #before_filter :authenticate_user! before_filter :ensure_admin, :only
 #=> [:edit, :destroy]
 #Got error for above(syntax error unexpected '\n') so using below
-before_action :ensure_admin
+#before_action :ensure_current_user
 
 def ensure_admin
 unless current_user && current_user.admin?
@@ -30,6 +30,11 @@ end
   # GET /doctorprofiles.json
   def index
     @doctorprofiles = Doctorprofile.all
+if params[:search]
+    @doctorprofiles = Doctorprofile.search(params[:search]).order("created_at DESC")
+  else
+    @doctorprofiles = Doctorprofile.all.order("created_at DESC")
+  end
   end
 
   # GET /doctorprofiles/1
@@ -100,7 +105,7 @@ end
       @doctorprofile = Doctorprofile.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    
     def doctorprofile_params
       params.require(:doctorprofile).permit(:name, :contactNumber, :address, :user_id)
     end

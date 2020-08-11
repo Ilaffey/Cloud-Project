@@ -9,6 +9,9 @@ class AppointmentsController < ApplicationController
      #@appointments = current_user.appointments.all
   end
 
+
+
+
   # GET /appointments/1
   # GET /appointments/1.json
   def show

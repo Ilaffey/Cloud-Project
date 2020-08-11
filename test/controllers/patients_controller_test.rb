@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class PatientsControllerTest < ActionDispatch::IntegrationTest
+include Devise::Test::IntegrationHelpers
   setup do
     @patient = patients(:one)
+    @user = users(:one)
+    
+    sign_in @user
   end
 
   test "should get index" do
@@ -44,5 +48,6 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to patients_url
+	sign_out @user
   end
 end

@@ -10,18 +10,15 @@
     <div id="patient_add" style="float: right"><%= link_to 'New Patient', new_patient_path, class: "btn btn-success btn-m" %></div>
     <!-- Search bar for searching patients -->
     <div id="search_bar" style="float: left">
+
         <!-- Search bar -->
-        <%= form_tag(patients_path, :method => "get") do %>
-            <div class="input-group add-on">
-              <%= text_field_tag :name, params[:name], class: 'form-control' %>
-                <div class="input-group-btn">
-                    <%= button_tag 'Search', name: nil, class: 'btn btn-default' do %>
-                        <i class="fas fa-search"></i>
-                    <% end %>
-                </div>
-            </div>
-        <% end %>
-    </div>
+<p>
+<%= form_tag(patients_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search patients by name" %>
+    <%= submit_tag "Search By Name", :name => nil %>
+    
+<% end %>
+</p>
 </div>
 <br>
 <br>
@@ -29,12 +26,13 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">name</th>
-      <th scope="col">contactNumber</th>
-      <th scope="col">address</th>
-      <th scope="col">gender</th>
+      <th scope="col">Name</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Address</th>
+      <th scope="col">Gender</th>
       <th scope="col">dob</th>
-      <th scope="col">ppsNumber</th>
+      <th scope="col"><%= UserDecorator.new(@patient).pps_to_uppercase%></th>
+      <th scope="col">ID</th>
       <th scope="col">Show</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
@@ -54,7 +52,7 @@
         <td><%= patient.id %></td>
         <td><%= link_to 'Show', patient %></td>
         <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
