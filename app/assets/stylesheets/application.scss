@@ -14,9 +14,11 @@
  *= require_self
  */
  
+*= require toastr
+*= require tether
+
  @import "bootstrap";
- @import "tether";
- @import "toastr";
+
  
  html {
    position: relative;
