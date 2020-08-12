@@ -35,8 +35,9 @@ gem 'uglifier', '>= 1.3.0'
 # Replace Uglifier as does not when deploying to Heroku
 gem 'webpacker', '~> 4.x'
 
+gem 'tether-rails'
 
-
+gem 'toastr-rails'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
