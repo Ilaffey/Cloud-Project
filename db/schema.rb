@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_03_20_183753) do
     t.integer "patient_id"
     t.text "notes"
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", #null: false
+    t.datetime "updated_at", #null: false
     t.index ["doctorprofile_id"], name: "index_appointments_on_doctorprofile_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2020_03_20_183753) do
     t.integer "contactNumber"
     t.string "address"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", #null: false
+    t.datetime "updated_at", #null: false
     t.index ["user_id"], name: "index_doctorprofiles_on_user_id"
   end
 
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_03_20_183753) do
     t.string "gender"
     t.datetime "dob"
     t.string "ppsNumber"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", #null: false
+    t.datetime "updated_at", #null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2020_03_20_183753) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", #null: false
+    t.datetime "updated_at", #null: false
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
